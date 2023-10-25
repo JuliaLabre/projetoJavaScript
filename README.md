@@ -19,7 +19,7 @@ Curso de JavaScript - Primeiro Módulo da ADA
 Tech lead - Julia Labre
 
 Team members:
-Eduardo Macedo
-Fabiana Ribas
-Marcela Amazonas
-Silvio Rodrigues
+Eduardo Macedo,
+Fabiana Ribas,
+Marcela Amazonas,
+Silvio Rodrigues.
