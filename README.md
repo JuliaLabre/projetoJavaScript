@@ -7,7 +7,6 @@ Totalmente sem interface e usando apenas JavaScript.
 Pelo navegador:
 Use a extensão Live Server e com o botão direito selecione o arquivo index e selecione a opção 'Open with Live Server'
 
-Pelo Terminal:
 
 ## Caso precise de ajuda, entre em contato com nosso time:
 Através do canal do Discord Turma-1093 
