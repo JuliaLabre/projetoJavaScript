@@ -19,7 +19,7 @@ function escolherProcedimento() {
     let escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova"));
 
     while (isNaN(escolha) || escolha < 1 || escolha > 3) {
-        alert("Por favor, e scolha um procedimento disponível")
+        alert("Por favor, escolha um procedimento disponível")
         escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova"));
     }
     
