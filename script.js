@@ -1,17 +1,21 @@
+// Variáveis de escopo global
+let procedimentoEscolhido = "";
+let horarioAleatorio = "";
 
+//Chamando todas as funções na ordem de execução
 const main = () => {
   const nome = perguntarNome();
   dizerBoasVindas(nome);
   escolherProcedimento();
   agendamento()
-  pagamento()
+  pagamento(nome, procedimentoEscolhido, horarioAleatorio)
   finalizacao(nome);
 
 }
 
-//Sistema de salão de beleza para corte de cabelo
+//Sistema de salão de beleza que mostra as opções de procedimentos e horários.
 
-//Função que recebe o nome de quem deseja cortar o cabelo
+//Função que recebe o nome e verifica se tem um nome válido
 const perguntarNome = () => {
   let nome = prompt("Qual é o seu nome?");
 
@@ -33,44 +37,51 @@ function escolherProcedimento() {
     { id: 2, nome: 'Escova', preco: 50.00 },
     { id: 3, nome: 'Corte e Escova', preco: 70.00 },
     { id: 4, nome: 'Tintura', preco: 40.00 }
-
   ];
 
   //alert("Clique em 'Ok' para ver os procedimentos disponíveis");
-  procedimentos[0].procedimentos.forEach((procedimento) => {
-    console.log(`ID: ${procedimento.id}, Nome: ${procedimento.nome}, Preço: R$ ${procedimento.preco.toFixed(2)}`);
+  procedimentos.forEach((procedimentos) => {
+    console.log(`ID: ${procedimentos.id}, Nome: ${procedimentos.nome}, Preço: R$ ${procedimentos.preco.toFixed(2)}`);
   });
 
-  let escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova"));
+  let escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"));
 
-  while (isNaN(escolha) || escolha < 1 || escolha > 3) {
+  while (isNaN(escolha) || escolha < 1 || escolha > 4) {
     alert("Por favor, escolha um procedimento disponível")
-    escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova"));
+    escolha = parseInt(prompt("Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"));
   }
 
   switch (escolha) {
+
     case 1:
-      const corte = procedimentos[0].procedimentos[0];
-      const resultadoCorte = `Você escolheu o procedimento:\n${corte.nome}\nPreço: R$ ${corte.preco.toFixed(2)}`;
-      document.write(resultadoCorte);
+      const corte = procedimentos[0];
+      procedimentoEscolhido = `Você escolheu o procedimento:\n${corte.nome}\nPreço: R$ ${corte.preco.toFixed(2)}`;
+      document.write(procedimentoEscolhido);
       break;
     case 2:
-      const escova = procedimentos[0].procedimentos[1];
-      const resultadoEscova = `Você escolheu o procedimento:\n${escova.nome}\nPreço: R$ ${escova.preco.toFixed(2)}`;
-      document.write(resultadoEscova);
+      const escova = procedimentos[1];
+      procedimentoEscolhido = `Você escolheu o procedimento:\n${escova.nome}\nPreço: R$ ${escova.preco.toFixed(2)}`;
+      document.write(procedimentoEscolhido);
       break;
     case 3:
-      const corteEscova = procedimentos[0].procedimentos[2];
-      const resultadoCorteEscova = `Você escolheu o procedimento:\n${corteEscova.nome}\nPreço: R$ ${corteEscova.preco.toFixed(2)}`;
-      document.write(resultadoCorteEscova);
+      const corteEscova = procedimentos[2];
+      procedimentoEscolhido = `Você escolheu o procedimento:\n${corteEscova.nome}\nPreço: R$ ${corteEscova.preco.toFixed(2)}`;
+      document.write(procedimentoEscolhido);
+      break;
+    case 4:
+      const tintura = procedimentos[3];
+      procedimentoEscolhido = `Você escolheu o procedimento:\n${tintura.nome}\nPreço: R$ ${tintura.preco.toFixed(2)}`;
+      document.write(procedimentoEscolhido);
       break;
     default:
       const mensagemErro = "Procedimento não encontrado. Por favor, escolha um ID válido.";
       document.write(mensagemErro);
   }
+
+  return procedimentoEscolhido
 }
 
-
+// Gera horários aleatórios e pede a confirmação do cliente.
 
 function gerarHorarioAleatorio(intervaloInicio, intervaloFim) {
 
@@ -87,7 +98,7 @@ function gerarHorarioAleatorio(intervaloInicio, intervaloFim) {
 
 function segundatentativa() {
 
-  let horarioAleatorio = gerarHorarioAleatorio(14, 18);
+  horarioAleatorio = gerarHorarioAleatorio(14, 18);
   let resposta;
 
   do {
@@ -108,12 +119,12 @@ function segundatentativa() {
     }
 
   } while (resposta != 's' && resposta != 'n');
-
+  return horarioAleatorio
 }
 
 function agendamento() {
 
-  let horarioAleatorio = gerarHorarioAleatorio(7, 11);
+  horarioAleatorio = gerarHorarioAleatorio(7, 11);
   let resposta;
 
   do {
@@ -137,24 +148,27 @@ function agendamento() {
         alert("Opção inválida, por favor digite a letra 's' se sim ou digite a letra 'n' se não.");
         break;
     }
+    return horarioAleatorio
 
   } while (resposta != 's' && resposta != 'n');
+
+
 
 }
 
 //Comanda de serviço
 
 
-function pagamento() {
-  if (realizarPagamento) {
-    const pagamentoFeito = confirm(clienteAtivo + " ,seu procedimento está marcado às " + horarioEscolhido + "\n" + "Realize o pagamento no valor de " + valor);
-    if (pagamentoFeito) {
-      alert(clienteAtivo + " seu procedimento está confirmado e começará no horário marcado" + "\n" + "Agradecemos a preferência, volte sempre!");
-    } else {
-      alert(clienteAtivo + " ,seu procedimento está marcado às " + horarioEscolhido + "\n" + "Realize o pagamento no valor de " + valor + "\n" + "Começaremos assim que recebermos o pagamento");
-    }
+function pagamento(nome, procedimentoEscolhido, horarioAleatorio) {
+
+  const pagamentoFeito = confirm(`${nome}\n${procedimentoEscolhido} ás ${horarioAleatorio} \n Realize o pagamento para iniciar`);
+  if (pagamentoFeito) {
+    alert(`${nome} seu procedimento está confirmado e começará no horário marcado.`);
+  } else {
+    alert(`${nome} \n ${procedimentoEscolhido} ás ${horarioAleatorio} \n Realize o pagamento para iniciar \n Começaremos assim que recebermos o pagamento`);
   }
 }
+
 
 const finalizacao = (nome) => {
   alert(`${nome}, Obrigado por nos visitar. Cuide bem desse novo visual e volte sempre quando precisar!`)
