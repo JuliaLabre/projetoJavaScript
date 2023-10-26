@@ -119,7 +119,7 @@ function segundatentativa() {
     }
 
   } while (resposta != 's' && resposta != 'n');
-  return horarioAleatorio
+
 }
 
 function agendamento() {
@@ -151,7 +151,6 @@ function agendamento() {
     return horarioAleatorio
 
   } while (resposta != 's' && resposta != 'n');
-
 
 
 }
