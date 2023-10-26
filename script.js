@@ -158,8 +158,6 @@ function agendamento(nome, procedimentosEscolhidos) {
 }
 
 function pagamento(nome, procedimentosEscolhidos, horarioAleatorio) {
-  console.log("PAGAMENTOOO");
-
   confirm(`${nome}, realize o pagamento para iniciar`);
 
   let statusPagamento = processarPagamento(procedimentosEscolhidos, nome);
