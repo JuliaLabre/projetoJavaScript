@@ -9,7 +9,7 @@ Para clonar e utilizar está aplicação, você irá precisar de:
 [Git](https://git-scm.com/)
 
 [Node.js v16 ou maior](https://nodejs.org/en)
-(Recomendamos a versão estável - LTS) + Yarn v1.13 ou maior instalada em sua máquina.
+(Recomendamos a versão estável - LTS)
 
 Digite no seu terminal:
 
