@@ -15,7 +15,7 @@ Digite no seu terminal:
 
 ```
 # Clone o repositório
-$ git clone https://github.com/FabianaRibas/projetoJavaScript.git
+$ git clone https://github.com/JuliaLabre/projetoJavaScript.git
 
 # Navegue até o repositório
 $ cd projetoJavaScript
