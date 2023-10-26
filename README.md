@@ -1,6 +1,6 @@
 # Projeto Salão de Beleza
 
-Nosso projeto consiste no uso de prompts para receber um cliente, informar o serviço, informar e receber confirmação do valor proposto. Totalmente sem interface e usando apenas JavaScript.
+Nosso projeto consiste em um sistema de atendimento de uma salão de beleza que utiliza o prompts para receber um cliente, informar os serviços, informar preços e receber confirmação de pagamento. Totalmente sem interface e usando apenas JavaScript.
 
 ## Pré requisitos para rodar a aplicação e os comandos para instalação
 
@@ -26,7 +26,7 @@ $ cd projetoJavaScript
 
 #### Pelo navegador
 
-Use a extensão Live Server e com o botão direito selecione o arquivo index e selecione a opção 'Open with Live Server'
+Use a extensão Live Server e com o botão direito selecione o arquivo index.html e selecione a opção 'Open with Live Server'
 
 #### Caso precise de ajuda, entre em contato com nosso time:
 
