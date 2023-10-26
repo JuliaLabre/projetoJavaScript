@@ -5,8 +5,8 @@ const main = () => {
   const nome = perguntarNome();
   dizerBoasVindas(nome);
   const procedimentosEscolhidos = escolherProcedimento();
-  let horarioAleatorio = agendamento(nome, procedimentosEscolhidos);
-  pagamento(nome, procedimentosEscolhidos, horarioAleatorio);
+  let horarioAleatorio = agendamento();
+  pagamento(nome, procedimentosEscolhidos);
   finalizacao(nome);
 };
 
@@ -47,9 +47,13 @@ function escolherProcedimento() {
   let escolhas = [];
   let escolha = parseInt(
     prompt(
-      "Escolha o procedimento pelo ID (digite 0 para parar): \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"
+      "Escolha o procedimento pelo ID: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura\n (Digite 0 para Sair)"
     )
   );
+  if(escolha === 0){
+    alert("Programa encerrada")
+    exit()
+  }
 
   while (escolha !== 0) {
     if (!isNaN(escolha) && escolha >= 1 && escolha <= 4) {
@@ -59,7 +63,7 @@ function escolherProcedimento() {
     }
     escolha = parseInt(
       prompt(
-        "Escolha o procedimento pelo ID (digite 0 para parar): \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"
+        "Se desejar escolher outro procedimento, digite o ID , se não digite 0 para prosseguir: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"
       )
     );
   }
@@ -121,10 +125,10 @@ function segundatentativa() {
         break;
     }
   } while (resposta != "s" && resposta != "n");
-  return horarioAleatorio;
+  
 }
 
-function agendamento(nome, procedimentosEscolhidos) {
+function agendamento() {
   const horarioAleatorio = gerarHorarioAleatorio(7, 11);
   let resposta;
 
@@ -153,12 +157,14 @@ function agendamento(nome, procedimentosEscolhidos) {
         );
         break;
     }
+    return horarioAleatorio;
+    
   } while (resposta != "s" && resposta != "n");
-  return horarioAleatorio;
+ 
 }
 
-function pagamento(nome, procedimentosEscolhidos, horarioAleatorio) {
-  confirm(`${nome}, realize o pagamento para iniciar`);
+function pagamento(nome, procedimentosEscolhidos) {
+  confirm(`${nome}, realize o pagamento para confirmar o agendamento`);
 
   let statusPagamento = processarPagamento(procedimentosEscolhidos, nome);
   if (statusPagamento) {
@@ -167,7 +173,7 @@ function pagamento(nome, procedimentosEscolhidos, horarioAleatorio) {
     );
   } else {
     alert(
-      `${nome} Realize o pagamento para iniciar \n Começaremos assim que recebermos o pagamento`
+      `${nome} por favor, realize o pagamento para confirmar o agendamento`
     );
   }
 }
@@ -216,6 +222,7 @@ const processarPagamento = (procedimentosEscolhidos, nome) => {
           .join("\n")}
         Total: R$ ${total.toFixed(2)}
         Meio de Pagamento: ${meioDePagamento}
+        Horário Marcado: ${horarioAleatorio}
         Pagamento realizado com sucesso.`);
 
   return true;
