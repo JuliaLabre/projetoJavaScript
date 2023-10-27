@@ -1,5 +1,3 @@
-// Variáveis de escopo global
-
 //Chamando todas as funções na ordem de execução
 const main = () => {
   const nome = perguntarNome();
@@ -63,7 +61,7 @@ function escolherProcedimento() {
     }
     escolha = parseInt(
       prompt(
-        "Se desejar escolher outro procedimento, digite o ID , se não digite 0 para prosseguir: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"
+        "Se desejar escolher outro procedimento, digite o ID ou digite 0 para prosseguir: \n1 - Corte de cabelo\n2 - Escova\n3 - Corte e Escova\n4 - Tintura"
       )
     );
   }
@@ -80,7 +78,6 @@ function escolherProcedimento() {
     procedimentosSelecionado = "Nenhum procedimento escolhido.";
   }
 
-  document.write(procedimentosSelecionado);
   return escolhas;
 }
 
@@ -129,7 +126,7 @@ function segundatentativa() {
 }
 
 function agendamento() {
-  const horarioAleatorio = gerarHorarioAleatorio(7, 11);
+  const horarioAleatorio = gerarHorarioAleatorio(14, 18);
   let resposta;
 
   do {
