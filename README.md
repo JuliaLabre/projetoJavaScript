@@ -45,4 +45,4 @@ Team members:
 [Fabiana Ribas](https://github.com/FabianaRibas),
 [Marcela Amazonas](https://github.com/marcellaamazonas),
 [Silvio Rodrigues](https://github.com/SilvioRC),
-[Gabriel Mende](https://github.com/Mendezada).
+[Gabriel Mendes](https://github.com/Mendezada).
