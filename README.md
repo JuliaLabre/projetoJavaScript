@@ -44,4 +44,5 @@ Team members:
 [Eduardo Macedo](https://github.com/eduardo-assimo),
 [Fabiana Ribas](https://github.com/FabianaRibas),
 [Marcela Amazonas](https://github.com/marcellaamazonas),
-[Silvio Rodrigues](https://github.com/SilvioRC).
+[Silvio Rodrigues](https://github.com/SilvioRC),
+[Gabriel Mende](https://github.com/Mendezada).
